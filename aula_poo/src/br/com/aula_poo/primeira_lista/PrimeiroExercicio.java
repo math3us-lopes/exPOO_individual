@@ -8,7 +8,8 @@ public class PrimeiroExercicio {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("escreva o seu nome: ");
 		String nome = scanner.nextLine();
-		System.out.print("escreva seu sobrenome: ");
+		System.out.print("escreva se"
+				+ "u sobrenome: ");
 		String sobrenome = scanner.nextLine();
 		scanner.close();
 		System.out.println("Olá, " +nome+ " " +sobrenome+ " "
