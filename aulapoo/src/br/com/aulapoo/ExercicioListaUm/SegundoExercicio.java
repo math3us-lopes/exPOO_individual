@@ -1,4 +1,4 @@
-package br.com.aulapoo;
+package br.com.aulapoo.ExercicioListaUm;
 import java.util.Scanner;
 public class SegundoExercicio {
 

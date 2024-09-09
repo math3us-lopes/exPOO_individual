@@ -1,8 +1,11 @@
-package br.com.aulapoo;
+package br.com.aulapoo.ExercicioListaUm;
 import java.util.Scanner;
 public class QuintoExercicio {
 
 	public static void main(String[] args) {
+		monstrarMenu();
+	}
+		public static void monstrarMenu() {
 		Scanner sc = new Scanner (System.in);
 		System.out.println("\t============Menu======================");
 		System.out.println(" \tEscolha uma opcão!");
@@ -21,19 +24,24 @@ public class QuintoExercicio {
 		switch(vai) {
 		case 1:
 			System.out.println("Seja bem vindo a nossa JBE ");
+			returnParaMenu();
 			break;
 		case 2:
 			java.util.Date now = new java.util.Date();
 			System.out.println("data e hora atuais "+""+ now);
+			returnParaMenu();
 		break;
 		case 3:
 			System.out.println("Saindo do programa");
 			break;
 			default: 
 				System.out.println("opção invalida");
+				returnParaMenu();
 		}
 		sc.close();
 
 	}
-
+		public static void returnParaMenu() {
+			monstrarMenu();
+		}
 }

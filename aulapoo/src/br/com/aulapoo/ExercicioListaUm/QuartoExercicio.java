@@ -1,4 +1,4 @@
-package br.com.aulapoo;
+package br.com.aulapoo.ExercicioListaUm;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class QuartoExercicio {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("digite seu nome: ");
 		String nome = sc.nextLine();
-		if(nome.endsWith(nome) ) {
+		if(nome.equals("matheus") ) {
 			System.out.println("olá "+nome+" Seja bemvindo");
 		}else {
 			System.out.println("Acesso negado !");
