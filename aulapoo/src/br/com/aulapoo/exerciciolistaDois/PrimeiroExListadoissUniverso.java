@@ -2,14 +2,14 @@ package br.com.aulapoo.exerciciolistaDois;
 
 import java.util.Scanner;
 
-public class PrimeiroExListadoiss {
+public class PrimeiroExListadoissUniverso {
 
 	public static void main(String[] args) {
-		PrimeiroExListadoiss p= new PrimeiroExListadoiss(); 
+		PrimeiroExListadoissUniverso p = new PrimeiroExListadoissUniverso();
 		p.mostrarMenu(); // Chama o método para exibir o menu inicial
 	}
 
-	public  void mostrarMenu() {
+	public void mostrarMenu() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("==========Guia=Mochileiro=das=Gálaxias===================");
 		System.out.println("---------------------------------------------------------");
@@ -58,7 +58,7 @@ public class PrimeiroExListadoiss {
 		sc.close(); // Fecha o scanner após a execução
 	}
 
-	public  void returnParaMenu() {
+	public void returnParaMenu() {
 		mostrarMenu(); // Volta ao menu inicial chamando o método novamente
 	}
 }

@@ -4,18 +4,17 @@ package br.com.aulapoo.exerciciolistaDois;
 import java.util.Scanner;
 //Programa Média final dos alunos Pegando os 4 Bimestres.
 
-public class PrimeiroExLdois {
+public class ExdoissTipoEstudodaMadrugadacomVetor {
 
 	public static void main(String[] args) {
-		PrimeiroExLdois p= new PrimeiroExLdois();
+		ExdoissTipoEstudodaMadrugadacomVetor p = new ExdoissTipoEstudodaMadrugadacomVetor();
 		p.opMenu();
-		}
-		public void opMenu() {
+	}
+
+	public void opMenu() {
 		Scanner sc = new Scanner(System.in);
 		String[] nomes = { "Matheus", "Francisco", "Alessandra", "Savio" };
-		double[][] notas = { { 10.0, 8.5, 9.8, 10.0 },
-				{ 7.5, 90.2, 6.9, 7.8 }, 
-				{ 6.5, 5.0, 4.9, 7.5 },
+		double[][] notas = { { 10.0, 8.5, 9.8, 10.0 }, { 7.5, 90.2, 6.9, 7.8 }, { 6.5, 5.0, 4.9, 7.5 },
 				{ 10.0, 10.0, 9.5, 8.5 } };
 		double[] media = new double[4];
 		for (int i = 0; i < 4; i++) {
@@ -55,7 +54,8 @@ public class PrimeiroExLdois {
 		sc.close();
 
 	}
-		public void returnMenu(){
-			opMenu();
-		}
+
+	public void returnMenu() {
+		opMenu();
+	}
 }

@@ -2,7 +2,7 @@ package br.com.aulapoo.ExercicioListaUm;
 
 import java.util.Scanner;
 
-public class PrimeiroExercicio {
+public class PrimeiroExercicioPosseidon {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);

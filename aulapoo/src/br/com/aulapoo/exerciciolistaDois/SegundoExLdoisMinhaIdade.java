@@ -1,8 +1,9 @@
 package br.com.aulapoo.exerciciolistaDois;
+
 // programa que  descobre a minha Idade atual. 
 import java.util.Scanner;
 
-public class SegundoExLdois {
+public class SegundoExLdoisMinhaIdade {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
