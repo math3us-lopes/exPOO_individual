@@ -1,4 +1,4 @@
-package br.com.aulapoo.ExerciciosClass;
+package br.com.aulapoo.ZexercicioExtra;
 
 import java.util.Scanner;
 
