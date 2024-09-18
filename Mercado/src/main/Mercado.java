@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import jdk.jshell.execution.Util;
 import modelo.Produto;
 import utils.Utils;
 
@@ -12,7 +15,7 @@ public class Mercado {
 	private static Scanner input = new Scanner(System.in);
 	private static ArrayList<Produto> produtos;
 	private static Map<Produto, Integer> carrinho;
-
+	private static Logger log = Logger.getLogger(Mercado.class.getName());
 	public static void main(String[] args) {
 		produtos = new ArrayList<>();
 		carrinho = new HashMap<>();
@@ -20,16 +23,16 @@ public class Mercado {
 	}
 
 	private static void menu() {
-		System.out.println("------------------------------------------------");
-		System.out.println("--------- Welcome to MTS Market Music ------------");
-		System.out.println("------------------------------------------------");
-		System.out.println("*** Selecione uma operação que deseja realizar ***");
-		System.out.println("------------------------------------------------");
-		System.out.println("|  Opção 1 - Cadastrar    |");
-		System.out.println("|  Opção 2 - Listar       |");
-		System.out.println("|  Opção 3 - Comprar      |");
-		System.out.println("|  Opção 4 - Carrinho     |");
-		System.out.println("|  Opção 5 - Sair         |");
+		 log.info("------------------------------------------------");
+		 log.info("--------- Welcome to MTS Market Music ------------");
+		 log.info("------------------------------------------------");
+		 log.info("*** Selecione uma operação que deseja realizar ***");
+		 log.info("------------------------------------------------");
+		 log.info("|  Opção 1 - Cadastrar    |");
+		 log.info("|  Opção 2 - Listar       |");
+		 log.info("|  Opção 3 - Comprar      |");
+		 log.info("|  Opção 4 - Carrinho     |");
+		 log.info("|  Opção 5 - Sair         |");
 
 		int opcao = input.nextInt();
 		switch (opcao) {
@@ -46,47 +49,47 @@ public class Mercado {
 			verCarrinho();
 			break;
 		case 5:
-			System.out.println("Volte sempre!");
+			log.warning("Volte sempre!");
 			System.exit(0);
 			break;
 		default:
-			System.out.println("Opção inválida!");
+			log.severe("Opção inválida!");
 			menu();
 			break;
 		}
 	}
 
 	private static void cadastrarProdutos() {
-		System.out.println("Nome do Produto: ");
+		log.info("Nome do Produto: ");
 		String nome = input.next();
 
-		System.out.println("Preço do Produto: ");
+		log.info("Preço do Produto: ");
 		Double preco = input.nextDouble();
 
 		Produto produto = new Produto(nome, preco);
 		produtos.add(produto);
 
-		System.out.println(produto.getNome() + " cadastrado com sucesso!");
+		log.warning(produto.getNome() + " cadastrado com sucesso!");
 		menu();
 	}
 
 	private static void listarProdutos() {
 		if (produtos.size() > 0) {
-			System.out.println("Lista de produtos!\n");
+			log.warning("Lista de produtos!\n");
 
 			for (Produto p : produtos) {
 				System.out.println(p);
 			}
 		} else {
-			System.out.println("Nenhum produto cadastrado!");
+			log.warning("Nenhum produto cadastrado!");
 		}
 		menu();
 	}
 
 	private static void comprarProdutos() {
 		if (produtos.size() > 0) {
-			System.out.println("Código do Produto: \n");
-			System.out.println("------------- Produtos Disponíveis -----------");
+			log.info("Código do Produto: \n");
+			log.info("------------- Produtos Disponíveis -----------");
 			for (Produto p : produtos) {
 				System.out.println(p + "\n");
 			}
@@ -110,8 +113,8 @@ public class Mercado {
 					isPresent = true;
 
 					if (isPresent) {
-						System.out.println("Deseja adicionar outro produto ao carrinho?");
-						System.out.println("Digite 1 para sim, ou 0 para finalizar a compra.");
+						log.info("Deseja adicionar outro produto ao carrinho?");
+						log.info("Digite 1 para sim, ou 0 para finalizar a compra.");
 						int opcao = Integer.parseInt(input.next());
 
 						if (opcao == 1) {
@@ -125,11 +128,11 @@ public class Mercado {
 			}
 
 			if (!isPresent) {
-				System.out.println("Produto não encontrado.");
+				log.warning("Produto não encontrado.");
 				menu();
 			}
 		} else {
-			System.out.println("Não existe produto cadastrado!");
+			log.warning("Não existe produto cadastrado!");
 			menu();
 		}
 	}
@@ -138,10 +141,10 @@ public class Mercado {
 		System.out.println("---- Produtos no seu Carrinho ----");
 		if (carrinho.size() > 0) {
 			for (Produto p : carrinho.keySet()) {
-				System.out.println("Produto: " + p + "\nQuantidade: " + carrinho.get(p));
+				log.info("Produto: " + p + "\nQuantidade: " + carrinho.get(p));
 			}
 		} else {
-			System.out.println("Carrinho Vazio!");
+			log.warning("Carrinho Vazio!");
 		}
 		menu();
 	}

@@ -1,25 +1,29 @@
 package br.com.banco.contas;
 
+
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.util.logging.Level;
 
-public class Conta {
+import br.com.banco.utils.Util;
 
-	DecimalFormat df = new DecimalFormat("0,000.00");
-	
-	//definição dos atributos
+public abstract class Conta {
+
+	DecimalFormat df = new DecimalFormat("#,##0.00");
+
+	// definição dos atributos
 	private int numero;
 	private int agencia;
 	private String titular;
-	private double saldo;
+	protected double saldo;
 	private LocalDateTime dtHrAbertura;
 	private static int totalContas;
-	
-	//Construtor default
+
+	// Construtor default
 	public Conta() {
 	}
 
-	//Construtor parametrizado
+	// Construtor parametrizado
 	Conta(int numero, int agencia, String titular, double saldo) {
 		this.numero = numero;
 		this.agencia = agencia;
@@ -29,11 +33,11 @@ public class Conta {
 		totalContas += 1;
 	}
 
-	//Get e Set
+	// Get e Set
 	public int getNumero() {
 		return numero;
 	}
-	
+
 	public int getAgencia() {
 		return agencia;
 	}
@@ -45,18 +49,29 @@ public class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
-	
+
 	public static int getTotalContas() {
 		return totalContas;
 	}
 
 	@Override
 	public String toString() {
-		return "Conta [numero=" + numero + ", agencia=" + agencia + ", titular=" + titular + ", saldoFormatado=" + df.format(saldo) + ", saldo=" + saldo + "]";
+		return "Conta [numero=" + numero + ", agencia=" + agencia + ", titular=" + titular + ", saldoFormatado="
+				+ df.format(saldo) + ", saldo=" + saldo + "]";
 	}
 
 	public LocalDateTime getDtHrAbertura() {
 		return dtHrAbertura;
 	}
+
+	public void sacar(Double valor) {
+		if (valor <= this.saldo && valor > 0) {
+			this.saldo -= valor;
+		} else {
+			Util.setupLogger().log(Level.INFO, "Saldo insuficiente!");
+		}
+	}
+
+	public abstract void depositar(Double valor);
 
 }
